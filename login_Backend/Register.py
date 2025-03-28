@@ -11,7 +11,7 @@ def Reg(data):
         db = mc.connect(
             host = "localhost",
             user = "root",
-            password = "Honey123@#",
+            password = "Rameshsurya@08",
             database = "website"
             )
 

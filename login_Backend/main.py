@@ -6,7 +6,6 @@ from Login import Log,ur_name,passwd
 app = Flask(__name__)
 
 
-
 # For Registration
 
 @app.route("/Register",methods = ["Post"])

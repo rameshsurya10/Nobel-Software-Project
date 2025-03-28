@@ -9,7 +9,7 @@ def db_cn():
     return mc.connect(
             host = "localhost",
             user = "root",
-            password = "Honey123@#",
+            password = "Rameshsurya@08",
             database = "website"
         )
     
@@ -59,10 +59,14 @@ def Log(data):
                  # Generate the JWT token
                  encoded_token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
+                 decode_token = jwt.decode(encoded_token, SECRET_KEY, algorithms=['HS256'])
+
                  return jsonify({
                      'message': 'Login successful',
-                     'token': encoded_token
+                     'token': encoded_token,
+                     'decode': decode_token
                  })
+            
     
             else:
                 return jsonify({"Error": "Username and password is mismatched..."})
