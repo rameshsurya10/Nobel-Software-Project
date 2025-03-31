@@ -14,7 +14,7 @@ app = Flask(__name__)
 def Regi():
 
     data = request.get_json()
-
+ 
     return Reg(data)
 
 # For Login

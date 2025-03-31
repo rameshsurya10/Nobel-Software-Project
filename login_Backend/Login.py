@@ -53,7 +53,7 @@ def Log(data):
                  payload = {
                     'username': username,
                     'password': password,
-                    'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)  # Token expiration time
+                    'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=5)  # Token expiration time
                 }
 
                  # Generate the JWT token
