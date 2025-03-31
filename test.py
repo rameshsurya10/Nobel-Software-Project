@@ -25,29 +25,88 @@
 
 
 
-def game():
-    import random
+# def game():
+#     import random
 
-    print("Welcome to the Game")
-    print("You have to guess the number between 1 to 100")
+#     print("Welcome to the Game")
+#     print("You have to guess the number between 1 to 100")
 
-    num = random.randint(1,100)
+#     num = random.randint(1,100)
 
-    chances = 0
+#     chances = 0
 
-    while chances < 5:
-        guess = int(input("Enter your guess: "))
+#     while chances < 5:
+#         guess = int(input("Enter your guess: "))
 
-        if guess == num:
-            print(f"Congratulation you have guessed the number in {chances} chances")
-            break
-        elif guess < num:
-            print("Your guess is too low")
-        else:
-            print("Your guess is too high")
+#         if guess == num:
+#             print(f"Congratulation you have guessed the number in {chances} chances")
+#             break
+#         elif guess < num:
+#             print("Your guess is too low")
+#         else:
+#             print("Your guess is too high")
         
-        chances += 1
+#         chances += 1
 
-    if chances == 5:
-        print(f"Sorry you have lost the game, the number was {num}")
-game()
+#     if chances == 5:
+#         print(f"Sorry you have lost the game, the number was {num}")
+# game()
+
+def signal():
+
+    select = sele.lower()
+
+    if select == "start":
+        print("The car is started")
+        for i in range(1,3):
+            print("The car is moving")
+        print("The car is stopped")
+
+        select = input("Enter the direction (left/right/stright): ")
+
+        
+
+        if select == "left" or "right" or "straight":
+            print(f"The car is moving in the direction of {select}")
+        for i in range(1,3):
+            print("The car is moving")
+        print("The car is stopped")
+
+        select = input("Enter the direction (left/right/stright): ")
+
+        
+
+        if select == "left" or "right" or "straight":
+            print(f"The car is moving in the direction of {select}")
+        for i in range(1,3):
+            print("The car is moving")
+        print("The car is stopped")
+
+        select = input("Enter the direction (left/right/stright): ")
+
+        
+
+        if select == "left" or "right" or "straight":
+            print(f"The car is moving in the direction of {select}")
+        for i in range(1,3):
+            print("The car is moving")
+        print("The car is stopped")
+
+        select = input("Enter the direction (left/right/stright): ")
+
+    
+
+        if select == "right":
+            print(f"The car is moving in the direction of {select}")
+            for i in range(1,3):
+               print("The car is moving")
+            print("The car is stopped")
+            print("The car is parked")
+        else:
+             print("destination is not reached")
+
+    else:
+        print("The car is not started")
+
+sele = input("Enter the signal (start/stop): ")
+signal()
