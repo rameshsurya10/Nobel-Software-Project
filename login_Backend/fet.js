@@ -1,27 +1,27 @@
-document.getElementById("LoginForm").addEventListener("submit", function(e){
+document.getElementById("LoginForm").addEventListener("submit", async function(e){
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    fetch("http://127.0.0.1:5000/login", {
+    const response = fetch("http://127.0.0.1:5000/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"  // ✅ Fixed header
         },
         body: JSON.stringify({
-            username: username,  // ✅ Ensure `username` is defined
-            password: password   // ✅ Ensure `password` is defined
+            username,password 
         }),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);  // ✅ Log response for debugging
-        if (data.login) {
-            alert("Login Successful!");
-            localStorage.setItem("token", data.token);  // ✅ Store token if needed
-        } else {
-            alert("Login Failed: " + data.message);
-        }
-    })
-    .catch(error => console.error("Error:", error));
+    
+    const data = await response.json();  // ✅ Fixed variable declaration
+    
+
+    if (data.status === 200) {
+        alert("Login successful!");
+    }
+
+    else{
+        Document.getElementById("errorMessage").textContent = data.message;  // ✅ Fixed variable name and method}
+        Document.getElementById("errorMessage").style.display = "block";  // ✅ Fixed variable name and method}
+    }
 })  
