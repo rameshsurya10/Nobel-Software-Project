@@ -9,7 +9,7 @@ def db_cn():
     return mc.connect(
             host = "localhost",
             user = "root",
-            password = "Honey123@#",
+            password = "Rameshsurya@08",
             database = "website"
         )
     
@@ -63,7 +63,7 @@ def Log(data):
                  return jsonify({
                      'message': 'Login successful',
                      'token': encoded_token,
-                     'decode': decode_token
+                     
                  })
             
     
