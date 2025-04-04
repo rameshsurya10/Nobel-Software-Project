@@ -59,10 +59,12 @@ def Log(data):
                  # Generate the JWT token
                  encoded_token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
+
                  return jsonify({
                      'message': 'Login successful',
                      'token': encoded_token
                  })
+            
     
             else:
                 return jsonify({"Error": "Username and password is mismatched..."})
