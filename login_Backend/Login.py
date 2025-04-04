@@ -62,7 +62,8 @@ def Log(data):
 
                  return jsonify({
                      'message': 'Login successful',
-                     'token': encoded_token
+                     'token': encoded_token,
+                     'decode': decode_token
                  })
             
     
