@@ -60,11 +60,7 @@ def Log(data):
                  encoded_token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
 
-                 return jsonify({
-                     'message': 'Login successful',
-                     'token': encoded_token,
-                     
-                 })
+                 return encoded_token
             
     
             else:
