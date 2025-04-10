@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify,make_response
+from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 from Register import Reg
 from Login import Log, ur_name, passwd
@@ -6,8 +6,8 @@ import jwt
 from functools import wraps
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5500"}})
 
-CORS(app)
 
 SECRET_KEY = 'Honey123'  # Keep this secret and secure
 
@@ -42,10 +42,17 @@ def Regi():
 
 
 # For Login
-@app.route("/Login", methods=["POST"])
+@app.route("/Login", methods=["POST", "OPTIONS"])
 def Login():
-    data = request.get_json()
-    return Log(data)
+    if request.method == "OPTIONS":
+        response = make_response()
+        response.headers["Access-Control-Allow-Origin"] = "http://127.0.0.1:5500"
+        response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+        response.headers["Access-Control-Allow-Methods"] = "POST, OPTIONS"
+        return response, 200  # Important: Return 200 OK
+    else:
+        data = request.get_json()
+        return Log(data)
 
 
 # For Updating Password

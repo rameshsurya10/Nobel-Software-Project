@@ -26,8 +26,8 @@ document.getElementById("LoginForm").addEventListener("submit", async function (
 
             // Redirect to the main page after successful login
             setTimeout(() => {
-                window.location.href = "../port/portfolio.html";
-            },2000); // 2 seconds delay before redirecting
+                window.location.href = "https://nobelsoftware.in/";
+            },500); // .5 seconds delay before redirecting
         } 
 
         else {
