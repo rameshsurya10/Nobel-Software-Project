@@ -51,11 +51,14 @@ def Reg(data):
                     cursor.fetchall()
                     db.commit()
                     return jsonify({"Result":"Data has been successfully added..."})
-                
-                
                 else:
                     return jsonify({"Match Error": "Password is mismatched..."})
                 
     except Error as er:
         return jsonify({"Error":f"Unable to connect the server {str(er)}"})
+    finally:        
+        if cursor:
+            cursor.close()
+        if db:
+            db.close()  
 

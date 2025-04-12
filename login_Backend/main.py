@@ -38,8 +38,8 @@ def token_required(f):
 @app.route("/Register", methods=["POST"])
 def Regi():
     data = request.get_json()
-    return Reg(data)
-
+    print("Received data:", data)  # Debugging log
+    return Reg(data) 
 
 # For Login
 @app.route("/Login", methods=["POST", "OPTIONS"])

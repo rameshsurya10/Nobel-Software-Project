@@ -1,3 +1,10 @@
+function displayMessage(message, isSuccess = false) {
+    const errorMessageElement = document.getElementById("errorMessage");
+    errorMessageElement.textContent = message;
+    errorMessageElement.style.color = isSuccess ? "green" : "red";
+    errorMessageElement.style.display = "block";
+}
+
 document.getElementById("LoginForm").addEventListener("submit", async function (e) {
     console.log("Form submitted"); // Debugging log
     e.preventDefault();
@@ -20,9 +27,7 @@ document.getElementById("LoginForm").addEventListener("submit", async function (
         console.log("Response:", data); // Debugging log
 
         if (response.ok) {
-            document.getElementById("errorMessage").textContent = data.message || "Login Successful!";
-            document.getElementById("errorMessage").style.color = "green"; 
-            document.getElementById("errorMessage").style.display = "block";
+            displayMessage(data.message || "Login Successful!", true);
 
             // Redirect to the main page after successful login
             setTimeout(() => {
@@ -31,12 +36,11 @@ document.getElementById("LoginForm").addEventListener("submit", async function (
         } 
 
         else {
-            document.getElementById("errorMessage").textContent = data.message || "Login failed!";
-            document.getElementById("errorMessage").style.display = "block";
+            displayMessage(data.message || "Login failed!");
         }
     } catch (error) {
-        document.getElementById("errorMessage").textContent = "An error occurred. Please try again.";
-        document.getElementById("errorMessage").style.display = "block";
+        displayMessage("An error occurred. Please try again.");
         console.error("Error:", error); // Debugging log
     }
 });
+
